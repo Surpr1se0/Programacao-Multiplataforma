@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_11e12"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Janela Principal" Height="260" Width="500">
+
     <Grid>
+        <!--Menu-->
+        <Menu Margin="0,0,0,196">
+            <MenuItem Header="Abrir Ficheiro">
+
+                <MenuItem x:Name="AbrirTexto" Header="Texto" Click="AbrirTexto_Click"/>
+                
+                <MenuItem x:Name="AbrirXML" Header="XML" Click="AbrirXML_Click"/>
+
+            </MenuItem>
+
+            <MenuItem Header="Guardar Texto">
+
+                <MenuItem x:Name="GuardarTexto" Header="Texto" Click="GuardarTexto_Click"/>
+
+                <MenuItem x:Name="GuardarXML" Header="XML" Click="GuardarXML_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!--Tree View-->
+        <TreeView x:Name="tvAlunos" Margin="10,48,10,10"
+                  SelectedItemChanged="tvAlunos_SelectedItemChanged"/>
 
     </Grid>
+    
 </Window>

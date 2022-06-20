@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Listagem dos Alunos-->
+<Alunos>
+	<Inscritos>
+		<Aluno Numero="12345">
+			<Nome>Francisco</Nome>
+			<Curso>LEI</Curso>
+		</Aluno>
+		<Aluno Numero="12543">
+			<Nome>Joana</Nome>
+			<Curso>TIC</Curso>
+		</Aluno>
+	</Inscritos>
+</Alunos>

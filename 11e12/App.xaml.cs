@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _11e12.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,11 @@ namespace _11e12
     /// </summary>
     public partial class App : Application
     {
+        public ModelInscricoes M_Inscricoes { get; set; }
+
+        public App()
+        {
+            M_Inscricoes = new ModelInscricoes();
+        }
     }
 }
