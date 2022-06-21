@@ -38,9 +38,9 @@ namespace teste.Models
                                                       new XElement("Capacidade", sal.Capacidade));
 
                 if (sal.Ocupada == true)
-                    doc.Element("Ocupadas").Add(novo);
+                    doc.Element("Edificio").Element("Ocupadas").Add(novo);
                 else
-                    doc.Element("NaoOcupadas").Add(novo);
+                    doc.Element("Edificio").Element("NaoOcupadas").Add(novo);
             }
 
             doc.Save(ficheiro);
