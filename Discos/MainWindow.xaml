@@ -1,0 +1,122 @@
+﻿<Window x:Class="Discos.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Discos"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu>
+            <MenuItem Header="Guardar">
+                <MenuItem x:Name="GuardarFicheiro" 
+                          Header="Ficheiro" 
+                          Click="GuardarFicheiro_Click"/>
+                <Separator/>
+                
+                <MenuItem 
+                    x:Name="GuardarXML" 
+                    Header="XML" 
+                    Click="GuardarXML_Click"/>
+            </MenuItem>
+
+            <MenuItem Header="Ler">
+                
+                <MenuItem 
+                    x:Name="LerFicheiro" 
+                    Header="Ficheiro" 
+                    Click="LerFicheiro_Click"/>
+                <Separator/>
+                
+                <MenuItem 
+                    x:Name="LerXML" 
+                    Header="XML" Click="LerXML_Click"/>
+            </MenuItem>
+
+            <MenuItem Header="Acerca">
+                <MenuItem 
+                    x:Name="SobreNos" 
+                    Header="Sobre Nós" Click="SobreNos_Click"/>
+            </MenuItem>
+
+        </Menu>
+
+        <TabControl Grid.Row="1" Margin="20" 
+                    Background="LightGray">
+            <TabItem Header="Preços">
+                <StackPanel Orientation="Vertical" 
+                            Margin="10">
+
+                    <TreeView x:Name="TVDiscos" Height="270"/>
+
+                    <StackPanel Orientation="Horizontal" 
+                                Margin="10">
+
+                        <Grid Width="713">
+                            <TextBlock x:Name="tbItem"
+                                       Text="Nenhum item selecionado..." 
+                                       Grid.Column="0" 
+                                       HorizontalAlignment="Left" 
+                                       Margin="0,20"/>
+                            
+                            <Button Content="Apagar" 
+                                    Grid.Column="1" 
+                                    HorizontalAlignment="Right" 
+                                    Padding="10,5" 
+                                    Width="80" 
+                                    VerticalAlignment="Center" 
+                                    Click="Button_Click"/>
+                        </Grid>
+
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Inventário">
+                <ListView Margin="10" x:Name="LVDiscos">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" Width="50" 
+                                            DisplayMemberBinding="{Binding Id}"/>
+                            
+                            <GridViewColumn Header="Titulo" Width="250" 
+                                            DisplayMemberBinding="{Binding Titulo}"/>
+                            
+                            <GridViewColumn Header="Interprete" Width="200"
+                                            DisplayMemberBinding="{Binding Autor}"/>
+
+                            <GridViewColumn Header="Ano" Width="250"
+                                            DisplayMemberBinding="{Binding Ano}"/>
+                        </GridView>
+
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+
+            <TabItem Header="Adicionar">
+                <StackPanel>
+                    <StackPanel Height="70">
+                        
+                    </StackPanel>
+
+                    <StackPanel Height="70">
+                        
+                    </StackPanel>
+
+                    <StackPanel Height="70">
+                        
+                    </StackPanel>
+                    
+                </StackPanel>
+            </TabItem>
+            
+        </TabControl>
+        
+    </Grid>
+</Window>

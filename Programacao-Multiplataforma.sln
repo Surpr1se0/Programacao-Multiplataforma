@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "11e12", "11e12\11e12.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Teste2013", "Teste2013", "{5F09C7E8-23DD-4E45-ABEC-5720C74E844B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "teste", "teste\teste.csproj", "{E85C20DC-64D3-462D-A9FA-00B904B7CF47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "teste", "teste\teste.csproj", "{E85C20DC-64D3-462D-A9FA-00B904B7CF47}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GravadoraDiscos", "GravadoraDiscos", "{EA566608-24B5-48AB-A94A-EBEB199E521D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discos", "Discos\Discos.csproj", "{17EC78BB-9666-4A12-8878-F36D16AA98EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,10 @@ Global
 		{E85C20DC-64D3-462D-A9FA-00B904B7CF47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E85C20DC-64D3-462D-A9FA-00B904B7CF47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E85C20DC-64D3-462D-A9FA-00B904B7CF47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17EC78BB-9666-4A12-8878-F36D16AA98EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17EC78BB-9666-4A12-8878-F36D16AA98EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17EC78BB-9666-4A12-8878-F36D16AA98EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17EC78BB-9666-4A12-8878-F36D16AA98EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{48D60208-C13F-4A1B-B992-874A1C6FB43B} = {E3352C20-C18E-4AC8-9262-DBBAD4B63EB0}
 		{E85C20DC-64D3-462D-A9FA-00B904B7CF47} = {5F09C7E8-23DD-4E45-ABEC-5720C74E844B}
+		{17EC78BB-9666-4A12-8878-F36D16AA98EE} = {EA566608-24B5-48AB-A94A-EBEB199E521D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF484FA4-621C-4244-852C-C6A6F32B347A}
