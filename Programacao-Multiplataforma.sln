@@ -5,7 +5,11 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ex11e12", "Ex11e12", "{E3352C20-C18E-4AC8-9262-DBBAD4B63EB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11e12", "11e12\11e12.csproj", "{48D60208-C13F-4A1B-B992-874A1C6FB43B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "11e12", "11e12\11e12.csproj", "{48D60208-C13F-4A1B-B992-874A1C6FB43B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Teste2013", "Teste2013", "{5F09C7E8-23DD-4E45-ABEC-5720C74E844B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "teste", "teste\teste.csproj", "{E85C20DC-64D3-462D-A9FA-00B904B7CF47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +21,17 @@ Global
 		{48D60208-C13F-4A1B-B992-874A1C6FB43B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48D60208-C13F-4A1B-B992-874A1C6FB43B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48D60208-C13F-4A1B-B992-874A1C6FB43B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E85C20DC-64D3-462D-A9FA-00B904B7CF47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E85C20DC-64D3-462D-A9FA-00B904B7CF47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E85C20DC-64D3-462D-A9FA-00B904B7CF47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E85C20DC-64D3-462D-A9FA-00B904B7CF47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{48D60208-C13F-4A1B-B992-874A1C6FB43B} = {E3352C20-C18E-4AC8-9262-DBBAD4B63EB0}
+		{E85C20DC-64D3-462D-A9FA-00B904B7CF47} = {5F09C7E8-23DD-4E45-ABEC-5720C74E844B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF484FA4-621C-4244-852C-C6A6F32B347A}

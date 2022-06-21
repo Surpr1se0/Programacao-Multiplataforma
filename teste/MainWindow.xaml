@@ -1,0 +1,37 @@
+﻿<Window x:Class="teste.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:teste"
+        mc:Ignorable="d"
+        Title="Janela Principal" Height="260" Width="500">
+
+    <Grid>
+        <!--Menu-->
+        <Menu Margin="0,0,250,196">
+            <MenuItem Header="Abrir Ficheiro">
+
+                <MenuItem x:Name="AbrirXML" Header="XML" Click="AbrirXML_Click"/>
+
+            </MenuItem>
+
+            <MenuItem Header="Guardar Ficheiro">
+
+                <MenuItem x:Name="GuardarXML" Header="XML" Click="GuardarXML_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!--Tree View-->
+        <TreeView x:Name="tvSalas" Margin="10,48,10,10"/>
+
+        <!--Reservar Botão-->
+        <Button x:Name="btnReservar" Content="Reservar" 
+                HorizontalAlignment="Left" 
+                Margin="346,14,0,0" 
+                VerticalAlignment="Top" 
+                Width="82" Click="btnReservar_Click"/>
+
+    </Grid>
+
+</Window>

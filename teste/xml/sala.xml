@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Edificio ID ="Engenharias I">
+	<Ocupadas>
+		<Sala Piso="0" ID ="F0.01">
+			<Capacidade>20</Capacidade>
+		</Sala>
+		<Sala Piso="0" ID="F0.02">
+			<Capacidade>25</Capacidade>
+		</Sala>
+	</Ocupadas>
+	<NaoOcupadas>
+		<Sala Piso="1" ID="F1.24">
+			<Capacidade>15</Capacidade>
+		</Sala>
+	</NaoOcupadas>
+</Edificio>
