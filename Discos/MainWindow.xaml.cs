@@ -49,7 +49,7 @@ namespace Discos
                 if (di.Comprado == true)
                     comprados.Items.Add(di.Autor + "-" + di.Preco);
                 if (di.Comprado == false)
-                    comprados.Items.Add(di.Autor + "-" + di.Preco);
+                    naoComprados.Items.Add(di.Autor + "-" + di.Preco);
             }
 
             TVDiscos.Items.Clear();
@@ -57,17 +57,22 @@ namespace Discos
             TVDiscos.Items.Add(comprados);
             TVDiscos.Items.Add(naoComprados);
 
+
             //Criar Itens da ListView
             foreach(Disco di in app.M_Discos.Dados.Values)
             {
                 LVDiscos.Items.Add(new Disco { Id = di.Id, Titulo = di.Titulo, Autor = di.Autor, Ano = di.Ano });
             }
-            LVDiscos.Items.Clear(); //adicionado
         }
 
         private void GuardarFicheiro_Click(object sender, RoutedEventArgs e)
         {
-            
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "Ficheiros de texto|*.txt|Todos os ficheiros|*-*";
+
+            if (dlg.ShowDialog() == true)
+                //invocacao de metodos do model
+                app.M_Discos.EscritaTexto(dlg.FileName);
         }
 
         private void GuardarXML_Click(object sender, RoutedEventArgs e)
@@ -82,7 +87,12 @@ namespace Discos
 
         private void LerFicheiro_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Ficheiros de texto|*.txt|Todos os ficheiros|*-*";
 
+            if (dlg.ShowDialog() == true)
+                //invocacao de metodos do model
+                app.M_Discos.LeituraTexto(dlg.FileName);
         }
 
         private void LerXML_Click(object sender, RoutedEventArgs e)
@@ -104,5 +114,29 @@ namespace Discos
         {
 
         }
+
+        private void btnAdicionar_Click(object sender, RoutedEventArgs e)
+        {
+            //Novo Disco
+            Disco newDisco = new Disco(tbID.ToString(), tbTitulo.ToString(), tbAno.ToString(), tbArtista.ToString(), tbPreco.ToString());
+            
+            app.M_Discos.Dados.Add(newDisco.Id, newDisco);
+
+            //Adicionar às diferentes estruturas
+            LVDiscos.Items.Add(newDisco);
+            
+            //Podia fazer um foreach aqui 
+
+            LVDiscos.Items.Add(new Disco { Id = tbID.ToString(), Titulo = tbTitulo.ToString(), 
+                                            Autor = tbArtista.ToString(), Ano = tbPreco.ToString() });
+        }
+
+        /*private void tbItem_Unloaded(object sender, RoutedEventArgs e)//arranjar melhor evento
+        {
+            if (LVDiscos.SelectedItem.ToString() != null)
+                tbItem.Text = LVDiscos.SelectedItem.ToString();
+            else
+                tbItem.Text = "Nenhum item selecionado...";
+        }*/
     }
 }

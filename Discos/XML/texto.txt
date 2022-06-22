@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Listagem dos Albuns-->
+<Albuns>
+  <Comprado>
+    <Album Id="0001">
+      <Titulo>Black Album</Titulo>
+      <Autor>Metallica</Autor>
+      <Ano>1991</Ano>
+      <Preco>20.00</Preco>
+    </Album>
+    <Album Id="0002">
+      <Titulo>10000 Days</Titulo>
+      <Autor>Tool</Autor>
+      <Ano>1996</Ano>
+      <Preco>25.00</Preco>
+    </Album>
+    <Album Id="0004">
+      <Titulo>Songs for the Deaf</Titulo>
+      <Autor>Queens of the Stone Age</Autor>
+      <Ano>2002</Ano>
+      <Preco>30.00</Preco>
+    </Album>
+  </Comprado>
+  <NaoComprado>
+    <Album Id="0003">
+      <Titulo>Live at Pulse Limited Edition</Titulo>
+      <Autor>Pink Floyd</Autor>
+      <Ano>2010</Ano>
+      <Preco>50.00</Preco>
+    </Album>
+  </NaoComprado>
+</Albuns>

@@ -1,0 +1,4 @@
+0001;Black Album;Metallica;1991;20.00;Comprado
+0002;10000 Days;Tool;1996;25.00;Comprado
+0004;Songs for the Deaf;Queens of the Stone Age;2002;30.00;Comprado
+0003;Live at Pulse Limited Edition;Pink Floyd;2010;50.00;NaoComprado

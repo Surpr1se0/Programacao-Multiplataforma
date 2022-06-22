@@ -51,7 +51,7 @@ namespace teste
                 if (sal.Ocupada == true)
                     reservada.Items.Add(sal.Id + "-" + sal.Piso + "-" + sal.Capacidade);
                 else
-                    reservada.Items.Add(sal.Id + "-" + sal.Piso + "-" + sal.Capacidade);
+                    naoReservada.Items.Add(sal.Id + "-" + sal.Piso + "-" + sal.Capacidade);
             }
 
             tvSalas.Items.Clear();
