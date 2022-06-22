@@ -20,6 +20,9 @@ namespace Discos.Models
 
         public Boolean Comprado { get; set; }
 
+        public event MetodosComString TextoValido;
+
+
         public Disco(string id, string titulo, string autor, string ano, string preco)
         {
             Id = id;
@@ -39,5 +42,19 @@ namespace Discos.Models
             this.Preco = Preco;
 
         }
+
+        public void ValidarTexto(string msg)
+        {
+            if (msg.Length > 0 && msg.Length <= 4)
+            {
+                Id = msg;
+
+                if (TextoValido != null)
+                    TextoValido(msg);
+            }
+            else
+                throw new TextoInvalidoException("Erro! Número de carateres inválido [1-5].");
+
+        }   
     }
 }

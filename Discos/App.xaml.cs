@@ -15,9 +15,11 @@ namespace Discos
     public partial class App : Application
     {
         public ModelDiscos M_Discos { get; set; }
+        public Disco Disco { get; set; }
         public App()
         {
             M_Discos = new ModelDiscos();
+            Disco = new Disco();
         }
     }
 }

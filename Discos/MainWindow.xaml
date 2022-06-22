@@ -60,10 +60,10 @@
 
                         <Grid Width="713" Height="76">
                             <TextBlock x:Name="tbItem"
-                                       Text="Nenhum item selecionado..." 
+                                       Text="No. Discos:" 
                                        Grid.Column="0" 
                                        HorizontalAlignment="Left" 
-                                       Margin="0,20"/>
+                                       Margin="0,20" Loaded="tbItem_Loaded"/>
 
                             <Button Content="Apagar" 
                                     HorizontalAlignment="Left" 
@@ -104,23 +104,28 @@
                     <StackPanel Margin="0, 0, 0, 0" Width="405" VerticalAlignment="Top" Height="347">
                         <StackPanel Height="70" HorizontalAlignment="Left" Width="408">
                             <TextBlock Text="Titulo:" HorizontalAlignment="Left"/>
-                            <TextBox x:Name="tbTitulo" HorizontalAlignment="Right" Width="407"/>
+                            <TextBox x:Name="tbTitulo" HorizontalAlignment="Right" Width="407"
+                                     Text="{Binding Path=Titulo}"/>
                         </StackPanel>
                         <StackPanel Height="70" HorizontalAlignment="Left" Width="408">
                             <TextBlock HorizontalAlignment="Left"><Run Language="pt-pt" Text="Artista"/></TextBlock>
-                            <TextBox x:Name="tbArtista" HorizontalAlignment="Right" Width="408"/>
+                            <TextBox x:Name="tbArtista" HorizontalAlignment="Right" Width="408"
+                                     Text="{Binding Path=Artista}"/>
                         </StackPanel>
                         <StackPanel Height="70" HorizontalAlignment="Left" Width="408">
                             <TextBlock HorizontalAlignment="Left"><Run Language="pt-pt" Text="Ano"/></TextBlock>
-                            <TextBox x:Name="tbAno" HorizontalAlignment="Right" Width="408"/>
+                            <TextBox x:Name="tbAno" HorizontalAlignment="Right" Width="408"
+                                     Text="{Binding Path=Ano}"/>
                         </StackPanel>
                         <StackPanel Height="70" HorizontalAlignment="Left" Width="408">
                             <TextBlock HorizontalAlignment="Left"><Run Language="pt-pt" Text="Preco"/></TextBlock>
-                            <TextBox x:Name="tbPreco" HorizontalAlignment="Right" Width="408"/>
+                            <TextBox x:Name="tbPreco" HorizontalAlignment="Right" Width="408"
+                                     Text="{Binding Path=Preco}"/>
                         </StackPanel>
                         <StackPanel Height="70" HorizontalAlignment="Left" Width="408">
                             <TextBlock HorizontalAlignment="Left"><Run Language="pt-pt" Text="ID"/></TextBlock>
-                            <TextBox x:Name="tbID" HorizontalAlignment="Right" Width="408"/>
+                            <TextBox x:Name="tbID" HorizontalAlignment="Right" Width="408"
+                                     Text="{Binding Path=Id}"/>
                         </StackPanel>
 
                     </StackPanel>

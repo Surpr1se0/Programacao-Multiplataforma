@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,21 @@ namespace Discos
             //Metodos
             app.M_Discos.LeituraTerminada += M_Discos_LeituraTerminada;
             app.M_Discos.DiscoComprado += M_Discos_LeituraTerminada;
+
+            app.M_Discos.EscritaTerminada += M_Discos_EscritaTerminada;
+
+            app.Disco.TextoValido += Disco_TextoValido;
+
+        }
+
+        private void M_Discos_EscritaTerminada()
+        {
+            MessageBox.Show("Escrito com sucesso!");
+        }
+
+        private void Disco_TextoValido(string str)
+        {
+            LVDiscos.Items.Add(new Disco(){ Id = str});
         }
 
         private void M_Discos_LeituraTerminada()
@@ -77,12 +93,19 @@ namespace Discos
 
         private void GuardarXML_Click(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog dlg = new SaveFileDialog();
-            dlg.Filter = "Ficheiros XML|*.xml|Todos os ficheiros|*-*";
+            try
+            {
+                SaveFileDialog dlg = new SaveFileDialog();
+                dlg.Filter = "Ficheiros XML|*.xml|Todos os ficheiros|*-*";
 
-            if (dlg.ShowDialog() == true)
-                //invocacao de metodos do model
-                app.M_Discos.EscritaXML(dlg.FileName);
+                if (dlg.ShowDialog() == true)
+                    //invocacao de metodos do model
+                    app.M_Discos.EscritaXML(dlg.FileName);
+            }
+            catch (FileNotFoundException erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
         }
 
         private void LerFicheiro_Click(object sender, RoutedEventArgs e)
@@ -112,31 +135,80 @@ namespace Discos
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            TVDiscos.Items.Remove(TVDiscos.SelectedItem);
+            TVDiscos.ItemsSource = app.M_Discos.Dados;
+            TVDiscos.Items.Refresh();
         }
 
         private void btnAdicionar_Click(object sender, RoutedEventArgs e)
-        {
-            //Novo Disco
-            Disco newDisco = new Disco(tbID.ToString(), tbTitulo.ToString(), tbAno.ToString(), tbArtista.ToString(), tbPreco.ToString());
-            
-            app.M_Discos.Dados.Add(newDisco.Id, newDisco);
+        { 
+            //Exceção Criada para o ID do Disco
+            try
+            {
+                app.Disco.ValidarTexto(tbID.Text);
+            }
+            catch (TextoInvalidoException erro)
+            {
+                //Mensagem exibida ao utilizador com a mensagem do erro que ocorreu
+                MessageBox.Show(erro.Message);
+            }
 
-            //Adicionar às diferentes estruturas
-            LVDiscos.Items.Add(newDisco);
-            
-            //Podia fazer um foreach aqui 
 
-            LVDiscos.Items.Add(new Disco { Id = tbID.ToString(), Titulo = tbTitulo.ToString(), 
-                                            Autor = tbArtista.ToString(), Ano = tbPreco.ToString() });
+            string autor = tbArtista.Text;
+            string ano = tbAno.Text;
+            string nome = tbTitulo.Text;
+            string id = tbID.Text;
+            string preco = tbPreco.Text;
+             
+            //LVDiscos.Items.Add(new Disco() { Id= id, Titulo = nome, Autor = autor, Ano = ano});
+
+            Disco newDisco = new Disco(id, nome, autor, ano, preco);
+            app.M_Discos.Dados.Add(id, newDisco);
+
+            //-----------------------------------
+            TVDiscos.ItemsSource = app.M_Discos.Dados;
+            TVDiscos.Items.Refresh();
+
+
+
+
+
+
+
+
+            //-------------------------------------
+
+            //Adicionar de Volta à treeView mas com o elemento novo
+            TreeViewItem comprados = new TreeViewItem();
+            comprados.Header = "Comprados";
+
+            TreeViewItem naoComprados = new TreeViewItem();
+            naoComprados.Header = "Não Comprados";
+
+            foreach (Disco di in app.M_Discos.Dados.Values)
+            {
+                if (di.Comprado == true)
+                    comprados.Items.Add(di.Autor + "-" + di.Preco);
+                else
+                    naoComprados.Items.Add(di.Autor + "-" + di.Preco);
+            }
+
+            TVDiscos.Items.Clear();
+
+            TVDiscos.Items.Add(comprados);
+            TVDiscos.Items.Add(naoComprados);
         }
 
-        /*private void tbItem_Unloaded(object sender, RoutedEventArgs e)//arranjar melhor evento
+
+        private void tbItem_Loaded(object sender, RoutedEventArgs e)
         {
-            if (LVDiscos.SelectedItem.ToString() != null)
-                tbItem.Text = LVDiscos.SelectedItem.ToString();
-            else
-                tbItem.Text = "Nenhum item selecionado...";
-        }*/
+            int count = 0;
+            foreach (Disco di in app.M_Discos.Dados.Values)
+            {
+                count++;
+            }
+
+            tbItem.Text = "No. de Discos: " + count;
+        }
     }
 }

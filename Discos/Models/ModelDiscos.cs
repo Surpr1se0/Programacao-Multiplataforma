@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace Discos.Models
 
         //Eventos
         public event MetodosSemParametros LeituraTerminada;
+        public event MetodosSemParametros EscritaTerminada;
         public event MetodosSemParametros DiscoComprado;
 
         //Construtor
@@ -57,22 +59,38 @@ namespace Discos.Models
             XDocument doc = new XDocument(new XDeclaration("1.0", Encoding.UTF8.ToString(), "yes"),
                             new XComment("Listagem dos Albuns"),
                             new XElement("Albuns", new XElement("Comprado"), new XElement("NaoComprado")));
-            
-            foreach(Disco di in Dados.Values)
-            {
-                XElement novo = new XElement("Album",
-                                    new XAttribute("Id", di.Id),
-                                    new XElement("Titulo", di.Titulo),
-                                    new XElement("Autor", di.Autor),
-                                    new XElement("Ano", di.Ano),
-                                    new XElement("Preco", di.Preco));
 
-                if (di.Comprado == true)
-                    doc.Element("Albuns").Element("Comprado").Add(novo);
+            if (ficheiro != null)
+            {
+                foreach (Disco di in Dados.Values)
+                {
+                    XElement novo = new XElement("Album",
+                                        new XAttribute("Id", di.Id),
+                                        new XElement("Titulo", di.Titulo),
+                                        new XElement("Autor", di.Autor),
+                                        new XElement("Ano", di.Ano),
+                                        new XElement("Preco", di.Preco));
+
+                    if (di.Comprado == true)
+                        doc.Element("Albuns").Element("Comprado").Add(novo);
+                    else
+                        doc.Element("Albuns").Element("NaoComprado").Add(novo);
+                }
+                doc.Save(ficheiro);
+
+                FileInfo fInfo = new FileInfo(ficheiro);
+
+                if (fInfo.Exists && fInfo.Length != 0)
+                {
+                    EscritaTerminada();
+                }
                 else
-                    doc.Element("Albuns").Element("NaoComprado").Add(novo);
+                {
+                    throw new FileNotFoundException("Ficheiro não encontrado!", ficheiro);
+                }
             }
-            doc.Save(ficheiro);
+            else
+                throw new FileNotFoundException("Nome do Ficheiro Inválido!");
         }
 
         public void LeituraTexto(string ficheiro)
@@ -139,5 +157,14 @@ namespace Discos.Models
             if (LeituraTerminada != null)
                 LeituraTerminada();
         }
+
+        /*public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < Dados.Count; i++)
+            {
+                yield return Dados[i];
+            }
+
+        }*/
     }
-}
+}   
